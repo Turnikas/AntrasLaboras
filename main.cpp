@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cstdlib>
 using namespace std;
 
 int main()
@@ -32,15 +33,19 @@ int main()
 
                 cout <<"Kiek pazymiu norite ivesti? (Min 1)(Max 10)\n> ";
                 cin >> pazymiuKiekis[mokiniuKiekis];
+				pazymiuKiekis[mokiniuKiekis] = abs(pazymiuKiekis[mokiniuKiekis]);
 
-                while (pazymiuKiekis[mokiniuKiekis] > 10 or pazymiuKiekis[mokiniuKiekis] < 1) {
+                while (abs(pazymiuKiekis[mokiniuKiekis]) > 10 or abs(pazymiuKiekis[mokiniuKiekis]) < 1) {
                     cout << "Ivesta per daug arba per mazai pazymiu.\nKiek pazymiu norite ivesti? (Min 1)(Max 10)\n> ";
                     cin >> pazymiuKiekis[mokiniuKiekis];
+
                 }
 
                 for (int i=0; i<pazymiuKiekis[mokiniuKiekis]; i++) {
                     cout << "Pazymys " << i + 1 << ": ";
                     cin >> pazymiai[mokiniuKiekis][i];
+					pazymiai[mokiniuKiekis][i] = abs(pazymiai[mokiniuKiekis][i]);
+					pazymiuKiekis[mokiniuKiekis] = abs(pazymiuKiekis[mokiniuKiekis]);
                 }
                 cout << "Mokinio pazymiai ivesti sekmingai.\n";
                 mokiniuKiekis++; //padidinam +1
@@ -66,7 +71,13 @@ int main()
                 }
                 break;
             }
-
+//-----------------------3-------------------------
+			case '3':
+			{
+				if (mokiniuKiekis == 0) {
+here
+}
+			}
             default:
                 cout << "Blogas pasirinkimas.\n";
                 break;
