@@ -53,10 +53,15 @@ int main()
                     cin >> pazymiuKiekis[mokiniuKiekis];
                 }
 
-                for (int i=0; i<pazymiuKiekis[mokiniuKiekis]; i++) {
+                for (int i = 0; i < pazymiuKiekis[mokiniuKiekis]; i++) {
                     cout << "Pazymys " << i + 1 << ": ";
                     cin >> pazymiai[mokiniuKiekis][i];
-					pazymiai[mokiniuKiekis][i] = abs(pazymiai[mokiniuKiekis][i]);
+
+                    while (pazymiai[mokiniuKiekis][i] < 1 || pazymiai[mokiniuKiekis][i] > 10) {
+                        linija();
+                        cout << "Blogas pazymys. Iveskite pazymi nuo 1 iki 10.\n> ";
+                        cin >> pazymiai[mokiniuKiekis][i];
+                    }
                 }
                 linija();
                 cout << "Mokinio pazymiai ivesti sekmingai.\n";
@@ -74,7 +79,7 @@ int main()
                 cout << "\n===== VISI MOKINIAI =====\n";
 
                 for (int i = 0; i < mokiniuKiekis; i++) {
-                    cout << i + 1 << ". " << vardai[i] << ": ";
+                    cout << i + 1 << ". " << vardai[i] << ": "; //+1 visual
 
                     for (int j = 0; j < pazymiuKiekis[i]; j++) {
                         cout << pazymiai[i][j] << " ";
@@ -95,7 +100,7 @@ int main()
 
                 cout << "\n===== MOKINIU SARASAS =====\n";
                 for (int i = 0; i < mokiniuKiekis; i++) {
-                    cout << i + 1 << ". " << vardai[i] << endl;
+                    cout << i + 1 << ". " << vardai[i] << endl; // vel +1 visual
                 }
 
                 int numeris;
@@ -130,14 +135,14 @@ int main()
 
                 cout << "\n===== MOKINIU SARASAS =====\n";
                 for (int i = 0; i < mokiniuKiekis; i++) {
-                    cout << i + 1 << ". " << vardai[i] << endl;
+                    cout << i + 1 << ". " << vardai[i] << endl; //visual +1
                 }
 
                 int numeris;
                 cout << "Iveskite mokinio numeri:\n> ";
                 cin >> numeris;
 
-                numeris = numeris - 1;
+                numeris = numeris - 1; //resetas
 
                 if (numeris < 0 || numeris >= mokiniuKiekis) {
                     linija();
@@ -146,14 +151,14 @@ int main()
                 }
 
                 cout << "Mokinys: " << vardai[numeris] << endl;
-
+                // realiai neimanomas atvejis, bet geriau daugiau, negu maziau
                 if (pazymiuKiekis[numeris] == 0) {
                     linija();
                     cout << "Sis mokinys neturi pazymiu.\n";
                     break;
                 }
 
-                // Parodom pažymius su numeriais
+                // rodo pazymius su numeriais
                 for (int i = 0; i < pazymiuKiekis[numeris]; i++) {
                     cout << i + 1 << ". " << pazymiai[numeris][i] << endl;
                 }
@@ -162,7 +167,7 @@ int main()
                 cout << "Kuri pazymi norite keisti?\n> ";
                 cin >> indeksas;
 
-                indeksas = indeksas - 1;
+                indeksas = indeksas - 1; //resetas vel del visual
 
                 if (indeksas < 0 || indeksas >= pazymiuKiekis[numeris]) {
                     linija();
